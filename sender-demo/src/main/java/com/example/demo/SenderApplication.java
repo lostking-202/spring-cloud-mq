@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.amqp.rabbit.connection.Connection;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.transaction.RabbitTransactionManager;
@@ -28,5 +29,10 @@ public class SenderApplication {
 	public RabbitTransactionManager rabbitTransactionManager(ConnectionFactory connectionFactory) {
 		RabbitTransactionManager rabbitTransactionManager = new RabbitTransactionManager(connectionFactory);
 		return rabbitTransactionManager;
+	}
+
+	@Bean
+	public Connection getConnection(ConnectionFactory connectionFactory){
+		return connectionFactory.createConnection();
 	}
 }
