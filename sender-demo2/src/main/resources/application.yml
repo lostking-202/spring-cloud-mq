@@ -1,0 +1,9 @@
+server:
+  port: 8082
+spring:
+  rabbitmq:
+    username: guest
+    password: guest
+    addresses: localhost:5672
+    publisher-confirms: true
+    publisher-returns: true
