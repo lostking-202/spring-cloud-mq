@@ -5,3 +5,5 @@ spring:
     username: guest
     password: guest
     addresses: localhost:5672
+
+spring.rabbitmq.listener.ackoneledge-mode: manual

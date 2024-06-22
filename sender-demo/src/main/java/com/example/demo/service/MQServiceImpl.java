@@ -11,6 +11,6 @@ public class MQServiceImpl {
     RabbitTemplate rabbitTemplate;
     @Transactional(rollbackFor=Exception.class)
     public void topicSend(){
-        rabbitTemplate.convertAndSend("news-exchange","province.city.street.shop","有人中了大奖");
+
     }
 }

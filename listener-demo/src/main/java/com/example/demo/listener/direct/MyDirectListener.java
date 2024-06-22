@@ -1,5 +1,6 @@
 package com.example.demo.listener.direct;
 
+import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
@@ -11,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RabbitListener(bindings = @QueueBinding(
-        value = @Queue("myDirectQueue"),
-        exchange = @Exchange(value = "myDirectExchange", type = ExchangeTypes.DIRECT),
+        value = @Queue(value = "myDirectQueue",durable = "true"),
+        exchange = @Exchange(value = "myDirectExchange", type = ExchangeTypes.DIRECT,durable ="true"),
         key = "mine.direct"
 ))
 public class MyDirectListener {
